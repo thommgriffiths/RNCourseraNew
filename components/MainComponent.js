@@ -15,14 +15,14 @@ const mapStateToProps = state => {
       promotions: state.promotions,
       leaders: state.leaders
     }
-  }
+}
 
 const mapDispatchToProps = dispatch => ({
     fetchDishes: () => dispatch(fetchDishes()),
     fetchComments: () => dispatch(fetchComments()),
     fetchPromos: () => dispatch(fetchPromos()),
     fetchLeaders: () => dispatch(fetchLeaders()),
-  })
+})
 
 
 import Home from './HomeComponent';
@@ -30,6 +30,7 @@ import Menu from './MenuComponent';
 import Dishdetail from './DishdetailComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
+import Reservation from './ReservationComponent';
 
 const MenuNavigator = createStackNavigator();
 
@@ -158,18 +159,6 @@ function ContactNavigatorScreen(){
 
 const AboutUsNavigator = createStackNavigator();
 
-const MenuIcon = (props) => {
-    return(
-        <Icon 
-            name='menu' 
-            size={24}
-            color='white'
-            onPress={() =>
-                props.navigation.toggleDrawer()}
-        />
-    );
-}
-
 function AboutUsNavigatorScreen(){
     return(
         <AboutUsNavigator.Navigator
@@ -190,8 +179,46 @@ function AboutUsNavigatorScreen(){
 
     )
 }
+// New reservetion component begin
+const ReservationNavigator = createStackNavigator();
+
+function ReservationNavigatorScreen(){
+    return(
+        <ReservationNavigator.Navigator
+            initialRouteName='Reservation'
+            screenOptions={HeaderOptions}
+        >
+            <ReservationNavigator.Screen
+                name="Reservation"
+                component={Reservation}
+                options={
+                    ({navigation}) => ({
+                        headerLeft: () => 
+                            <MenuIcon navigation={navigation}/>
+                    })
+                 }
+            />
+        </ReservationNavigator.Navigator>
+
+    )
+}
+//New reservation component end
+
+
 
 const MainNavigator = createDrawerNavigator();
+
+const MenuIcon = (props) => {
+    return(
+        <Icon 
+            name='menu' 
+            size={24}
+            color='white'
+            onPress={() =>
+                props.navigation.toggleDrawer()}
+        />
+    );
+}
 
 
 function MainNavigatorDrawer() {
@@ -253,6 +280,20 @@ function MainNavigatorDrawer() {
                     drawerIcon: ({tintColor}) => (
                         <Icon
                             name='info-circle'
+                            type='font-awesome'
+                            size={24}
+                            color={tintColor}
+                        />
+                    )
+                }}                
+            />
+            <MainNavigator.Screen 
+                name="Reservation"   
+                component={ReservationNavigatorScreen} 
+                options={{
+                    drawerIcon: ({tintColor}) => (
+                        <Icon
+                            name='cutlery'
                             type='font-awesome'
                             size={24}
                             color={tintColor}
