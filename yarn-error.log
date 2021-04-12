@@ -1,5 +1,5 @@
 Arguments: 
-  /snap/node/3292/bin/node /usr/local/bin/yarnpkg add expo-permissions@~9.0.1
+  /snap/node/3292/bin/node /usr/local/bin/yarnpkg add expo-mail-composer@~8.2.1
 
 PATH: 
   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -42,6 +42,7 @@ npm manifest:
       "@react-navigation/native": "^5.7.3",
       "@react-navigation/stack": "^5.9.0",
       "expo": "^38.0.10",
+      "expo-permissions": "8.1.0",
       "expo-secure-store": "9.0.1",
       "expo-status-bar": "^1.0.2",
       "react": "~16.11.0",
@@ -2659,6 +2660,11 @@ Lockfile:
     integrity sha512-MixKapt3nijAxyjIISscBzdKi8bwh0H/dWYsL2mCofrjguFHOh2gP07h95902lekb7NVqybl5AIQRW5cvrG4rQ==
     dependencies:
       invariant "^2.2.4"
+  
+  expo-permissions@8.1.0:
+    version "8.1.0"
+    resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-8.1.0.tgz#a7f2ee91ba76ce3a467e7b10adaa9ca5201b226f"
+    integrity sha512-QBHD+1J9+sGFnhoEGzMRchPweeEE0OJ9ehG/0l1BMRBA7qsLS9vRC1FTJ55NwjI0Kr4RTha9r6ZX1kZHT09f/w==
   
   expo-permissions@~9.0.1:
     version "9.0.1"
