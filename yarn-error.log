@@ -1,5 +1,5 @@
 Arguments: 
-  /snap/node/3292/bin/node /usr/local/bin/yarnpkg add expo-secure-store@~9.0.1
+  /snap/node/3292/bin/node /usr/local/bin/yarnpkg add expo-permissions@~9.0.1
 
 PATH: 
   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -42,6 +42,7 @@ npm manifest:
       "@react-navigation/native": "^5.7.3",
       "@react-navigation/stack": "^5.9.0",
       "expo": "^38.0.10",
+      "expo-secure-store": "9.0.1",
       "expo-status-bar": "^1.0.2",
       "react": "~16.11.0",
       "react-dom": "~16.11.0",
@@ -2663,6 +2664,11 @@ Lockfile:
     version "9.0.1"
     resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-9.0.1.tgz#dc10b58654bbe39bbbed5827369942b01b08055e"
     integrity sha512-CosJgy8XQRN/OFG2JTQDcFxz3XTGi27coCMym/hVXWtQfk0z6PwdRG5IXHfLGuSckwIcgmirrwm2+Zc0X3MmNg==
+  
+  expo-secure-store@9.0.1:
+    version "9.0.1"
+    resolved "https://registry.yarnpkg.com/expo-secure-store/-/expo-secure-store-9.0.1.tgz#e564a2d5392cd1ab883b9b6a7e261c1815d15788"
+    integrity sha512-+XgSZTelr57AyIJIGPcB/+QMrrm7wd8KFaF+TD8eJFwEN3B7s+tZyNoPH2JaJkAY0yh9FqcGG4kE3/YgK7GY3Q==
   
   expo-splash-screen@^0.5.0:
     version "0.5.0"

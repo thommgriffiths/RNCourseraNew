@@ -3,6 +3,8 @@ import { ScrollView, Text, View, StyleSheet, Picker, Switch, Button, Alert } fro
 import { Card } from 'react-native-elements';
 import DatePicker from 'react-native-datepicker';
 import * as Animatable from "react-native-animatable";
+import { Notifications } from "expo";
+import * as Permissions from "expo-permissions";
 
 class Reservation extends Component {
 
@@ -38,7 +40,10 @@ class Reservation extends Component {
               },
               {
                 text: "Confirm",
-                onPress: () => this.resetForm(),
+                onPress: () => {
+                    this.presentLocalNotif(this.state.date);                    
+                    this.resetForm();
+                },
                 style: "default",
               },
             ]
@@ -50,6 +55,54 @@ class Reservation extends Component {
             guests: 1,
             smoking: false,
             date: ''
+        });
+    }
+
+    async obtainNotificationPermission() {
+        let permission = await Permissions.getAsync(
+           Permissions.USER_FACING_NOTIFICATIONS
+        );
+    
+        if (permission.status !== "granted") {
+            permission = await Permissions.askAsync(
+                Permissions.USER_FACING_NOTIFICATIONS
+            );
+
+            if (permission.status !== "granted") {
+                Alert.alert("Permission not granted to show notifications");
+            }
+        } else {
+            if (Platform.OS === "android") {
+                Notifications.createChannelAndroidAsync("notify", {
+                    name: "notify",
+
+                    sound: true,
+
+                    vibrate: true,
+                });
+            }
+        }
+    
+        return permission;
+    }
+    
+    async presentLocalNotif(date) {
+        await this.obtainNotificationPermission();
+    
+        Notifications.presentLocalNotificationAsync({
+          title: "Your Reservation",
+    
+          body: "Reservation for " + date + " requested",
+    
+          ios: {
+            sound: true,
+          },
+    
+          android: {
+            channelId: "notify",
+            sound: true,
+            color: "#512DA8",
+          },
         });
     }
     
