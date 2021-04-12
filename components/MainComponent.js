@@ -32,6 +32,7 @@ import Contact from './ContactComponent';
 import About from './AboutComponent';
 import Reservation from './ReservationComponent';
 import Favorites from './FavoritesComponent';
+import Login from "./LoginComponent";
 
 const MenuNavigator = createStackNavigator();
 
@@ -230,6 +231,31 @@ function FavoritesNavigatorScreen(){
 }
 //New favorites component end
 
+// New Log in component begin
+const LoginNavigator = createStackNavigator();
+
+function LoginNavigatorScreen(){
+    return(
+        <LoginNavigator.Navigator
+            initialRouteName='Login'
+            screenOptions={HeaderOptions}
+        >
+            <LoginNavigator.Screen
+                name="Login"
+                component={Login}
+                options={
+                    ({navigation}) => ({
+                        headerLeft: () => 
+                            <MenuIcon navigation={navigation}/>
+                    })
+                 }
+            />
+        </LoginNavigator.Navigator>
+
+    )
+}
+//New Log in component end
+
 
 const MainNavigator = createDrawerNavigator();
 
@@ -255,6 +281,20 @@ function MainNavigatorDrawer() {
             }}
             drawerContent={props => <CustomDrawerContentComponent {...props}/>}
         >
+            <MainNavigator.Screen 
+                name="Login"   
+                component={LoginNavigatorScreen} 
+                options={{
+                    drawerIcon: ({tintColor}) => (
+                        <Icon
+                            name='sign-in'
+                            type='font-awesome'
+                            size={24}
+                            color={tintColor}
+                        />
+                    )
+                }}                
+            />
             <MainNavigator.Screen 
                 name="Home"       
                 component={HomeNavigatorScreen} 
@@ -313,12 +353,12 @@ function MainNavigatorDrawer() {
                 }}                
             />
             <MainNavigator.Screen 
-                name="Reservation"   
-                component={ReservationNavigatorScreen} 
+                name="Favorites"   
+                component={FavoritesNavigatorScreen} 
                 options={{
                     drawerIcon: ({tintColor}) => (
                         <Icon
-                            name='cutlery'
+                            name='heart'
                             type='font-awesome'
                             size={24}
                             color={tintColor}
@@ -327,12 +367,12 @@ function MainNavigatorDrawer() {
                 }}                
             />
             <MainNavigator.Screen 
-                name="Favorites"   
-                component={FavoritesNavigatorScreen} 
+                name="Reservation"   
+                component={ReservationNavigatorScreen} 
                 options={{
                     drawerIcon: ({tintColor}) => (
                         <Icon
-                            name='heart'
+                            name='cutlery'
                             type='font-awesome'
                             size={24}
                             color={tintColor}
