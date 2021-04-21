@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "^3.4.6",
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-community/netinfo": "4.7.0",
     "@react-navigation/bottom-tabs": "^5.11.9",
@@ -16,6 +17,7 @@
     "@react-navigation/stack": "^5.9.0",
     "expo": "^38.0.10",
     "expo-asset": "^8.3.1",
+    "expo-calendar": "^9.1.2",
     "expo-image-manipulator": "^9.1.0",
     "expo-image-picker": "8.3.0",
     "expo-mail-composer": "~8.2.1",
